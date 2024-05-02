@@ -1,0 +1,125 @@
+<div class="content">
+  <div class="header" id="header">
+    <div class="nav">
+      <label></label>
+      <div class="switchs">
+
+        <button style="font-weight: bold;" class="logUser" id="logUser" *ngIf="isLoggedIn"><i class="fa fa-book"></i>
+          Bienvenue ! Vous êtes connecté en tant que : {{ userEmail }} </button>
+
+        <button style="font-weight: bold;" class="log" id="log" (click)="scrollToDivHtml(aboutSection)"><i
+            class="fa fa-home"></i> Acceuil</button>
+        <button style="font-weight: bold;" class="log" id="log" (click)="scrollToDivHtml(servicesSection)"><i
+            class="fa fa-cog"></i> Services</button>
+        <button style="font-weight: bold;" class="log" id="log" *ngIf="!isLoggedIn" (click)="goToLoginPage()"><i
+            class="fa fa-sign-in"></i>
+          Authentification</button>
+
+        <button style="font-weight: bold;" class="log" id="log" *ngIf="isLoggedIn" (click)="goToLoginPage()"><i
+            class="fa fa-sign-in"></i>
+          Se déconnecter</button>
+
+
+        <button style="font-weight: bold;" class="create_acc" id="create_acc" (click)="goToRegisterPage()"><i
+            class="fa fa-user-plus"></i> Créer
+          compte</button>
+      </div>
+
+
+    </div>
+    <div class="main">
+      <div class="text">
+        <h1 style="margin-left: -10%; font-family: Verdana;">Gestion des
+          opérations de caisses</h1><br>
+        <h4 style="font-family: monospace; font-weight: bolder; margin-left: -8%; color: rgb(248, 247, 247);">Developé
+          par Wajdi Bouzaien</h4><br><br>
+      </div><br>
+      <img class="floating" id="img3" [src]="'assets/img/lms-bg.png'">
+    </div>
+  </div>
+  <br>
+</div>
+<br><br>
+<marquee class="marquee" direction="left">🔔Cette application est destinée au Société Nationale des Chemins de Fer Tunisiens 😀
+</marquee>
+
+<section id="about" #aboutSection class="about about-bg">
+  <div class="about-container">
+    <div class="subtext1" id="subtext1"><span class="counter">01</span> &nbsp;La prise en charge des opérations de caisse<i
+        id="subtext1" class="fa fa-caret-down"></i></div>
+    <div class="innertext1" id="innertext1">Ce portail vous facilite pour un <b
+        style="color: darkmagenta; font-size: larger; font-weight: bolder;">conviviale</b> expérience avec tous les
+        opérations suivants : <b
+        style="color: darkgreen; font-size: large; font-weight: bolder;">Saisie, rectification, consultation et arrêté</b>
+         </div>
+  </div>
+  <div class="about-container">
+    <div class="subtext1" id="subtext2"><span class="counter">02</span> &nbsp;Trois modes différents<i id="subtext2"
+        class="fa fa-caret-down"></i></div>
+    <div class="innertext1" id="innertext2">Ce portail propose deux modes de fonctionnement
+      différents : <b style="color:darkblue; font-size: larger; font-weight: bolder;">ADMIN, CAISSIER.</b>
+      Chacun d'eux peut accéder à ses fonctionnalités respectives et effectuer sa tâche en conséquence. (par défaut,
+      l'ADMIN sera <b style="color: darkgreen; font-size: larger; font-weight: bolder;">Wajdi Bouzaien
+      </b><b style="color: darkred;">(Créateur de portail)</b></div>
+  </div>
+  <div class="about-container">
+    <div class="subtext1" id="subtext3"><span class="counter">03</span> &nbsp;La mise à jour des données de base<i
+        id="subtext3" class="fa fa-caret-down"></i></div>
+    <div class="innertext1" id="innertext3">La mise à jour des données de base : banques, transactions <b
+        style="color: darkgreen; font-size: larger; font-weight: bolder;">banques</b> et <b
+        style="color: darkgreen; font-size: larger; font-weight: bolder;">transactions.</b> L' <b
+        style="color: darkred; font-size: medium; font-weight: bolder;">ADMIN</b> ou <b
+        style="color: darkred; font-size: medium; font-weight: bolder;">CAISSIER</b>
+      lors de la manipulations des fonctionnalités</div>
+  </div>
+  <div class="about-container">
+    <div class="subtext1" id="subtext4"><span class="counter">04</span> &nbsp;Plug-In Play Conférences vidéo intégrées<i
+        id="subtext4" class="fa fa-caret-down"></i></div>
+    <div class="innertext1" id="innertext4"><b
+        style="color: darkgreen; font-size: larger; font-weight: bolder;">Les éditions et la consultation :</b> sont également divisés
+       aux <b style="color: darkgreen; font-size: larger; font-weight: bolder;">caissiers</b> Selon les roles
+      des utilisateurs, il est facilité de gérer les différents transactions <b
+        style="color: maroon; font-size: large; font-weight: bolder;">Les listes de prise en charge.</b> Vous pouvez aussi
+      <b style="color: darkblue; font-size: medium; font-weight: bolder;">Liste du compte caisse et de l’arrêté de caiss,
+        Consultation des caisses arrêtées .</b>
+    </div>
+  </div><br>
+  <img class="automation" [src]="'assets/img/sncft.PNG'" width="470" height="380">
+</section>
+
+<main id="main">
+  <section id="services" #servicesSection class="services section-bg">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2 style="font-family: aladin; color: rgb(3, 34, 34);">Portail convivial pour la gestion des 
+          opérations de caisses</h2>
+      </div>
+      <div class="mid_body2">
+        <div class="details">
+          <div class="detail_1" (click)="goToNextPageAdmin()"
+            style="background-color: rgb(19, 104, 97); margin-right: 5%;">
+            <h2 style="font-weight: bolder; font-size: 35px;font-family: monospace; margin-top: 5%; color: white;">
+              ADMIN </h2>
+            <div class="circle" style="border-radius: 50%; background-color: white; padding: 10%;">
+              <img [src]="'assets/img/admin.png'" width="130" height="130">
+            </div>
+          </div>
+          <div class="detail_2" (click)="goToNextPageTrainer()"
+            style="background-color: rgb(19, 104, 97); margin-right: 5%;">
+            <h2 style="font-weight: bolder; font-size: 35px;font-family: monospace; margin-top: 5%; color: white;">
+              CAISSIER </h2>
+            <div class="circle" style="border-radius: 50%; background-color: white; padding: 10%;">
+              <img [src]="'assets/img/femaleprofessor.png'" width="130" height="130">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<div>
+
+</div>
+<app-footer></app-footer>
