@@ -8,6 +8,9 @@ import { UserProfileComponent } from './components/user-management/user-profile/
 import { LoginGuard } from './services/guard/login.guard';
 import { LogoutGuard } from './services/guard/logout.guard';
 import { DashbordUserComponent } from './components/user-management/dashbord-user/dashbord-user.component';
+import { ListBankComponent } from './components/bank-management/list-bank/list-bank.component';
+import { CreateBankComponent } from './components/bank-management/create-bank/create-bank.component';
+import { UpdateBankComponent } from './components/bank-management/update-bank/update-bank.component';
 
 export const routes: Routes = [
   { path: 'welcome', component: WelcomepageComponent},
@@ -16,6 +19,10 @@ export const routes: Routes = [
   { path: 'listuser', component: ListUserComponent, canActivate:[LoginGuard]},
   { path: 'dashborduser', component: DashbordUserComponent, canActivate:[LoginGuard]},
   { path: 'updateuserprofile', component: UserProfileComponent,canActivate:[LoginGuard] },
+  { path: 'listbank', component: ListBankComponent,canActivate:[LoginGuard] },
+  { path: 'create-bank', component: CreateBankComponent,canActivate:[LoginGuard] },
+  { path: 'update-bank', component: UpdateBankComponent,canActivate:[LoginGuard] },
+  { path: 'listbank', component: ListBankComponent,canActivate:[LoginGuard] },
   { path: 'login', component: LoginComponent, canActivate: [LogoutGuard] },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: '**', redirectTo: '/welcome' },

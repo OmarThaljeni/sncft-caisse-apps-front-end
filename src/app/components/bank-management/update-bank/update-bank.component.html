@@ -1,0 +1,29 @@
+<div class="dialog-container" cdkDrag>
+    <div class="dialog-header">
+      <h2>Modifier une banque</h2>
+      <button mat-icon-button (click)="closeDialog()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  
+    <form class="form-container" [formGroup]="bankForm" (submit)="onSubmit()">
+      <div class="form-group">
+        <label for="codeBank">Code Bank:</label>
+        <input type="text" id="codeBank" formControlName="codeBank" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="socialRaison">Social Raison:</label>
+        <input type="text" id="socialRaison" formControlName="socialRaison" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="codeComptable">Code Comptable:</label>
+        <input type="text" id="codeComptable" formControlName="codeComptable" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="rib">RIB:</label>
+        <input type="text" id="rib" formControlName="rib" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+  </div>
+  

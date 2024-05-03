@@ -1,0 +1,54 @@
+.content {
+    margin-left: 22%;
+    padding: 20px;
+    margin-right: 30%;
+    margin-top: 95px;
+    position: relative;
+    height: 100%;
+    top: 0;
+    width: 70%;
+    left: 0;
+    overflow: hidden;
+  }
+  
+  .search-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+  
+  .mat-column-id,
+  .mat-column-codeBank,
+  .mat-column-socialRaison,
+  .mat-column-codeComptable,
+  .mat-column-rib {
+    flex: 1;
+  }
+  
+  .mat-icon-button {
+    color: #2b779b;
+  }
+  
+  .mat-icon {
+    font-size: 18px;
+  }
+  
+
+  
+.deleteRow {
+  color: red;
+}
+
+.updateRow {
+  color: rgb(121, 211, 102);
+} 

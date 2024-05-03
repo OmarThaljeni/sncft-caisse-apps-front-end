@@ -1,0 +1,73 @@
+.dialog-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 400px; /* Adjust the width as needed */
+  cursor: move; /* Show move cursor */
+
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: #f0f0f0;
+  border-radius: 8px 8px 0 0; /* Rounded corners only at the top */
+}
+
+.dialog-header h2 {
+  margin: 0;
+}
+
+.dialog-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dialog-header button:focus {
+  outline: none;
+}
+
+.dialog-header button:hover {
+  background-color: #e0e0e0;
+}
+
+.form-container {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #00b100;
+}
