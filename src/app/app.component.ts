@@ -17,11 +17,17 @@ import { FooterComponent } from './components/shared-component-management/footer
 export class AppComponent implements OnInit {
   title = 'Plate-forme d\'apprentissage en ligne';
   currentRoute: string = '';
+  showSubmenu: { [key: string]: boolean } = {};
 
   isLoggedIn: boolean = false;
   isHomePage: boolean = false;
   email: string | null = '';
-  constructor(protected loginService: LoginService, private route: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(protected loginService: LoginService, private route: Router, private activatedRoute: ActivatedRoute) {
+    this.showSubmenu = {
+      user: false,
+      bank: false
+    };
+   }
 
 
   ngOnInit(): void {
@@ -35,6 +41,11 @@ export class AppComponent implements OnInit {
   logout() {
     this.loginService.logout();
     this.route.navigate(['/welcome']);
+  }
+  
+  toggleSubmenu(menu: string): void {
+    // Toggle the state of the submenu
+    this.showSubmenu[menu] = !this.showSubmenu[menu];
   }
 
 

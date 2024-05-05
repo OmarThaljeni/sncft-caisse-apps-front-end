@@ -6,21 +6,39 @@
 
   <div class="container" *ngIf="this.loginService.isUserLoggedIn() && !this.loginService.isCurrentPage()">
     <div class="sidebar">
-      <ul>
+      
+      
+      <ul class="menu">
         <li>
-          <img [src]="'assets/img/admin.png'" alt="Card image" height="120px" width="120px"
-            style="margin-left: 55px; margin-top: 20px;">
+          <img [src]="'assets/img/admin.png'" alt="Card image" height="120px" width="120px" style="margin-left: 55px; margin-top: 20px;">
           <p style="margin-left: 30px; margin-bottom: 60px;">{{email}}</p>
         </li>
         <li [routerLink]="['/dashborduser']"><i class="fas fa-tachometer-alt"></i> Bord</li>
-        <!--         <li *ngIf="this.loginService.isAdmin()" [routerLink]="['/listprofessor']"><i class="fas fa-user"></i> Gestion des formateurs</li>
- -->
-        <li [routerLink]="['/listuser']"><i class="fas fa-user"></i> Gestion des
-          utilisateurs</li>
-        <li [routerLink]="['/listbank']"><i class="fas fa-user"></i> Gestion des banques</li>
+        <!-- <li *ngIf="this.loginService.isAdmin()" [routerLink]="['/listprofessor']"><i class="fas fa-user"></i> Gestion des formateurs</li> -->
+        <li (click)="toggleSubmenu('user')">
+          <i class="fas fa-user"></i> Gestion des utilisateurs
+          <ul *ngIf="showSubmenu.user" class="submenu">
+            <!-- Add sub-item icon here -->
+            <li [routerLink]="['/listuser']"><i class="fas fa-user"></i> Liste des utilisateurs</li>
+          </ul>
+        </li>
+
+
+        <li (click)="toggleSubmenu('bank')" class="has-submenu">
+          <!-- Change the icon to represent whether it's opened or closed -->
+          <i class="fas" [ngClass]="{'fa-angle-up': !showSubmenu.bank, 'fa-times': showSubmenu.bank}"></i> Mise à jour
+          <ul *ngIf="showSubmenu.bank" class="submenu">
+            <li [routerLink]="['/listbank']"><i class="fas fa-list"></i> Banques</li>
+            <li [routerLink]="['/list-trsanscation']"><i class="fas fa-list"></i> Transactions</li>
+          </ul>
+        </li>
+
+
         <li [routerLink]="['/updateuserprofile']"><i class="fas fa-user"></i> Modifier profil</li>
         <li (click)="logout()"><i class="fas fa-sign-out-alt"></i> Se déconnecter</li>
       </ul>
+                                    
+
     </div>
   </div>
 
