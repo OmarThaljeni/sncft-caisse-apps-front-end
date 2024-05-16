@@ -6,11 +6,12 @@
 
   <div class="container" *ngIf="this.loginService.isUserLoggedIn() && !this.loginService.isCurrentPage()">
     <div class="sidebar">
-      
-      
+
+
       <ul class="menu">
         <li>
-          <img [src]="'assets/img/admin.png'" alt="Card image" height="120px" width="120px" style="margin-left: 55px; margin-top: 20px;">
+          <img [src]="'assets/img/admin.png'" alt="Card image" height="120px" width="120px"
+            style="margin-left: 55px; margin-top: 20px;">
           <p style="margin-left: 30px; margin-bottom: 60px;">{{email}}</p>
         </li>
         <li [routerLink]="['/dashborduser']"><i class="fas fa-tachometer-alt"></i> Bord</li>
@@ -34,10 +35,22 @@
         </li>
 
 
+
+        <li (click)="toggleSubmenuEnc('enc')" class="has-submenu">
+          <!-- Change the icon to represent whether it's opened or closed -->
+          <i class="fas" [ngClass]="{'fa-angle-up': !showSubmenuEnc.enc, 'fa-times': showSubmenuEnc.enc}"></i>
+          Opérations
+          <ul *ngIf="showSubmenuEnc.enc" class="submenu">
+            <li [routerLink]="['/list-encaissment']"><i class="fas fa-list"></i> Encaissement</li>
+            <li [routerLink]="['/list-trsanscation']"><i class="fas fa-list"></i> Décaissement</li>
+          </ul>
+        </li>
+
+
         <li [routerLink]="['/updateuserprofile']"><i class="fas fa-user"></i> Modifier profil</li>
         <li (click)="logout()"><i class="fas fa-sign-out-alt"></i> Se déconnecter</li>
       </ul>
-                                    
+
 
     </div>
   </div>

@@ -12,6 +12,7 @@ import { ListBankComponent } from './components/bank-management/list-bank/list-b
 import { CreateBankComponent } from './components/bank-management/create-bank/create-bank.component';
 import { UpdateBankComponent } from './components/bank-management/update-bank/update-bank.component';
 import { ListTransactionComponent } from './components/transaction-mgt/list-transaction/list-transaction.component';
+import { ListEncaissmentComponent } from './components/encaissment-mgt/list-encaissment/list-encaissment.component';
 
 export const routes: Routes = [
   { path: 'welcome', component: WelcomepageComponent},
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'update-bank', component: UpdateBankComponent,canActivate:[LoginGuard] },
   { path: 'listbank', component: ListBankComponent,canActivate:[LoginGuard] },
   { path: 'list-trsanscation', component: ListTransactionComponent,canActivate:[LoginGuard] },
+  { path: 'list-encaissment', component: ListEncaissmentComponent,canActivate:[LoginGuard] },
   { path: 'login', component: LoginComponent, canActivate: [LogoutGuard] },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: '**', redirectTo: '/welcome' },

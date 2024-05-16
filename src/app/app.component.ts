@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   title = 'Plate-forme d\'apprentissage en ligne';
   currentRoute: string = '';
   showSubmenu: { [key: string]: boolean } = {};
+  showSubmenuEnc: { [key: string]: boolean } = {};
 
   isLoggedIn: boolean = false;
   isHomePage: boolean = false;
@@ -27,6 +28,11 @@ export class AppComponent implements OnInit {
       user: false,
       bank: false
     };
+    this.showSubmenuEnc = {
+      user: false,
+      enc: false
+    };
+
    }
 
 
@@ -45,7 +51,13 @@ export class AppComponent implements OnInit {
   
   toggleSubmenu(menu: string): void {
     // Toggle the state of the submenu
-    this.showSubmenu[menu] = !this.showSubmenu[menu];
+    this.showSubmenu[menu] = !this.showSubmenu[menu];    
+  }
+
+  toggleSubmenuEnc(menu: string): void {
+    // Toggle the state of the submenu
+    this.showSubmenuEnc[menu] = !this.showSubmenuEnc[menu];
+    
   }
 
 
