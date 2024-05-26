@@ -31,9 +31,7 @@ export class UpdateBankComponent {
 
   onSubmit() {
     if (this.bankForm.valid) {
-      const bankData = this.bankForm.value;
-      console.log(bankData);
-      
+      const bankData = this.bankForm.value;      
       this.bankService.updateBank(this.data.id,bankData)
         .subscribe(res => {
           this.dialogRef.close(res);

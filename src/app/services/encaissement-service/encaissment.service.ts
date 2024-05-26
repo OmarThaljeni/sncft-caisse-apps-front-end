@@ -22,7 +22,7 @@ export class EncaissmentService {
   }
 
   createEncaissment(encaissment: Encaissment): Observable<Encaissment> {
-    return this.http.post<Encaissment>(`${this.baseUrl}/add/`, encaissment);
+    return this.http.post<Encaissment>(`${this.baseUrl}/add`, encaissment);
   }
 
   updateEncaissment(id: number, encaissment: Encaissment): Observable<Encaissment> {

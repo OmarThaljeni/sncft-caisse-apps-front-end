@@ -39,8 +39,8 @@
 
     <div class="form-group">
       <label for="bank">Select Bank:</label>
-      <select id="bank" formControlName="bank" class="form-control" required>
-        <option *ngFor="let bank of banks" [value]="bank">{{ bank.codeBank }}</option>
+      <select id="bank" formControlName="banqueName" class="form-control" required>
+        <option *ngFor="let bank of banks" [value]="bank.codeBank">{{ bank.codeBank }}</option>
       </select>
     </div>
 

@@ -17,48 +17,46 @@ import { EncaissmentService } from '../../../services/encaissement-service/encai
 })
 export class AddEncaissmentComponent implements OnInit {
   transactionForm: FormGroup;
-  selectedBank : Bank | undefined;
+  selectedBank: Bank | undefined;
   banks: any;
 
-  constructor(private encaissmentService: EncaissmentService,private fb: FormBuilder, private dialogRef: DialogRef, private bankService: BankService) {
-    const initialTransaction = {
-      ref: '',
-      matricule: '',
-      fullname: '',
-      cin: '',
-      motif: '',
-      somme: '',
-      banque: this.selectedBank // Assuming banque is a complex object and will be handled separately
-    };
-
-    this.transactionForm = this.fb.group({
-      ref: [initialTransaction.ref],
-      matricule: [initialTransaction.matricule],
-      fullname: [initialTransaction.fullname],
-      cin: [initialTransaction.cin],
-      motif: [initialTransaction.motif],
-      somme: [initialTransaction.somme],
-      bank: [initialTransaction.banque]
-      // You may handle 'banque' separately depending on its structure and input method
-    });
+  constructor(private encaissmentService: EncaissmentService, private fb: FormBuilder, private dialogRef: DialogRef, private bankService: BankService) {
+    {
+      this.transactionForm = this.fb.group({
+        ref: [''],
+        matricule: [''],
+        fullname: [''],
+        cin: [''],
+        motif: [''],
+        somme: [''],
+        status: [''],
+        banqueName: [''] // Assuming bank_id is part of your form
+      });
+    }
   }
+
+
   ngOnInit() {
     this.getAllBanks();
   }
 
   onSubmit() {
-    // Get the bank data from the form
-    const encData = this.transactionForm.value;
-    console.log(this.transactionForm);
-    let resp = this.encaissmentService.createEncaissment(encData);
-    resp.subscribe(res => {
-      this.dialogRef.close();
-      window.location.reload();
-    },
-  error => {
-    console.log(error.error);
-  }
-  )
+    if (this.transactionForm.valid) {
+      const encData = this.transactionForm.value;
+      console.log(encData);
+
+      this.encaissmentService.createEncaissment(encData).subscribe(
+        res => {
+          this.dialogRef.close();
+          window.location.reload();
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    } else {
+      console.log('Form is invalid');
+    }
   }
 
   closeDialog(): void {

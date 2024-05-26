@@ -14,10 +14,10 @@
             style="margin-left: 55px; margin-top: 20px;">
           <p style="margin-left: 30px; margin-bottom: 60px;">{{email}}</p>
         </li>
-        <li [routerLink]="['/dashborduser']"><i class="fas fa-tachometer-alt"></i> Bord</li>
+        <li [routerLink]="['/dashborduser']"><i class="fas fa-tachometer-alt"></i> <b> Bord</b></li>
         <!-- <li *ngIf="this.loginService.isAdmin()" [routerLink]="['/listprofessor']"><i class="fas fa-user"></i> Gestion des formateurs</li> -->
         <li (click)="toggleSubmenu('user')">
-          <i class="fas fa-user"></i> Gestion des utilisateurs
+          <i class="fas fa-user"></i> <b>Gestion des utilisateurs</b>
           <ul *ngIf="showSubmenu.user" class="submenu">
             <!-- Add sub-item icon here -->
             <li [routerLink]="['/listuser']"><i class="fas fa-user"></i> Liste des utilisateurs</li>
@@ -27,7 +27,7 @@
 
         <li (click)="toggleSubmenu('bank')" class="has-submenu">
           <!-- Change the icon to represent whether it's opened or closed -->
-          <i class="fas" [ngClass]="{'fa-angle-up': !showSubmenu.bank, 'fa-times': showSubmenu.bank}"></i> Mise à jour
+          <i class="fas" [ngClass]="{'fa-angle-up': !showSubmenu.bank, 'fa-times': showSubmenu.bank}"></i> <b> Mise à jour</b>
           <ul *ngIf="showSubmenu.bank" class="submenu">
             <li [routerLink]="['/listbank']"><i class="fas fa-list"></i> Banques</li>
             <li [routerLink]="['/list-trsanscation']"><i class="fas fa-list"></i> Transactions</li>
@@ -39,7 +39,7 @@
         <li (click)="toggleSubmenuEnc('enc')" class="has-submenu">
           <!-- Change the icon to represent whether it's opened or closed -->
           <i class="fas" [ngClass]="{'fa-angle-up': !showSubmenuEnc.enc, 'fa-times': showSubmenuEnc.enc}"></i>
-          Opérations
+         <b> Opérations </b>
           <ul *ngIf="showSubmenuEnc.enc" class="submenu">
             <li [routerLink]="['/list-encaissment']"><i class="fas fa-list"></i> Encaissement</li>
             <li [routerLink]="['/list-trsanscation']"><i class="fas fa-list"></i> Décaissement</li>
@@ -47,8 +47,8 @@
         </li>
 
 
-        <li [routerLink]="['/updateuserprofile']"><i class="fas fa-user"></i> Modifier profil</li>
-        <li (click)="logout()"><i class="fas fa-sign-out-alt"></i> Se déconnecter</li>
+        <li [routerLink]="['/updateuserprofile']"><i class="fas fa-user"></i> <b> Modifier profil </b> </li>
+        <li (click)="logout()"><i class="fas fa-sign-out-alt"></i> <b> Se déconnecter </b></li>
       </ul>
 
 

@@ -19,6 +19,13 @@
           <mat-cell *matCellDef="let row"> {{row.ref}} </mat-cell>
         </ng-container>
 
+        
+        <ng-container matColumnDef="banque">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Banque </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.banqueName}} </mat-cell>
+        </ng-container>
+
+
         <ng-container matColumnDef="matricule">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Matricule </mat-header-cell>
           <mat-cell *matCellDef="let row"> {{row.matricule}} </mat-cell>

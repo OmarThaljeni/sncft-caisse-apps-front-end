@@ -22,7 +22,7 @@ import { EncaissmentService } from '../../../services/encaissement-service/encai
   styleUrl: './list-encaissment.component.css'
 })
 export class ListEncaissmentComponent {
-  displayedColumns = ['ref', 'matricule', 'fullname', 'cin', 'motif', 'somme', 'actions'];
+  displayedColumns = ['ref', 'banque','matricule', 'fullname', 'cin', 'motif', 'somme', 'actions'];
   dataSource: MatTableDataSource<Encaissment>;
 
   @ViewChild(MatSort, { static: false }) sort!: MatSort;

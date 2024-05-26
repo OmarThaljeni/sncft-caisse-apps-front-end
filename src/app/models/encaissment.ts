@@ -1,4 +1,3 @@
-import { Bank } from "./bank";
 
 // bank.model.ts
 export class Encaissment {
@@ -9,7 +8,7 @@ export class Encaissment {
       public cin: string,
       public motif: string,
       public somme: string,
-      public banque: Bank,
+      public banqueName: string,
     ) {}
   }
   
