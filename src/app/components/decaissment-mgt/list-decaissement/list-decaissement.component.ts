@@ -1,6 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { UpdateEncaissmentComponent } from '../update-encaissment/update-encaissment.component';
-import { AddEncaissmentComponent } from '../add-encaissment/add-encaissment.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../../../material.module';
@@ -11,41 +9,47 @@ import { DialogService } from '../../../services/user-services/dialog.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
 import { BankService } from '../../../services/bank-service/bank.service';
-import { Encaissment } from '../../../models/encaissment';
-import { EncaissmentService } from '../../../services/encaissement-service/encaissment.service';
+import { Decaissement } from '../../../models/decaissment';
+import { DecaissementService } from '../../../services/encaissement-service/decaissement.service';
+import { UpdateDecaissementComponent } from '../update-decaissement/update-decaissement.component';
+import { AddDecaissementComponent } from '../add-decaissement/add-decaissement.component';
 
 @Component({
-  selector: 'app-list-encaissment',
+  selector: 'app-list-decaissement',
   standalone: true,
   imports: [FormsModule, CommonModule, MaterialModule],
-  templateUrl: './list-encaissment.component.html',
-  styleUrl: './list-encaissment.component.css'
+  templateUrl: './list-decaissement.component.html',
+  styleUrls: ['./list-decaissement.component.css']
 })
-export class ListEncaissmentComponent {
-  displayedColumns = ['ref', 'banque','matricule', 'fullname', 'cin', 'motif', 'somme', 'actions'];
-  dataSource: MatTableDataSource<Encaissment>;
+export class ListDecaissementComponent {
+  displayedColumns = ['ref', 'banque', 'matricule', 'fullname', 'cin', 'motif', 'somme', 'actions'];
+  dataSource: MatTableDataSource<Decaissement>;
 
   @ViewChild(MatSort, { static: false }) sort!: MatSort;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   listBank: any;
-  constructor(private encaissmentService: EncaissmentService, private bankService: BankService, private notification: NotificationService, private dialogService: DialogService, private dialog: MatDialog) {
+
+  constructor(
+    private decaissementService: DecaissementService,
+    private bankService: BankService,
+    private notification: NotificationService,
+    private dialogService: DialogService,
+    private dialog: MatDialog
+  ) {
     this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit(): void {
-    this.getAllEncaissment();
+    this.getAllDecaissement();
   }
 
-
-
-  getAllEncaissment() {
-    this.encaissmentService.getAllEncaissment().subscribe((data: Encaissment[]) => {
+  getAllDecaissement() {
+    this.decaissementService.getAllDecaissement().subscribe((data: Decaissement[]) => {
       this.dataSource.data = data;
-      console.log('data test',data)
+      console.log('data test', data);
     });
   }
-
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
@@ -61,8 +65,8 @@ export class ListEncaissmentComponent {
     }
   }
 
-  openCreateEncaissmentDialog(): void {
-    const dialogRef = this.dialog.open(AddEncaissmentComponent, {
+  openCreateDecaissementDialog(): void {
+    const dialogRef = this.dialog.open(AddDecaissementComponent, {
       width: '500px', // Set the width of the modal
       disableClose: true // Prevent closing the modal by clicking outside or pressing ESC
     });
@@ -73,27 +77,26 @@ export class ListEncaissmentComponent {
     });
   }
 
-  deleteEncaissment(row: any) {
-    this.dialogService.openConfirmDialog('Vous étes sur confirmer cette ecaissement ?')
+  deleteDecaissement(row: any) {
+    this.dialogService.openConfirmDialog('Vous êtes sûr de confirmer cette décaissement ?')
       .afterClosed().subscribe(res => {
         if (res) {
-          let resp = this.encaissmentService.deleteBank(row.id);
+          let resp = this.decaissementService.deleteDecaissement(row.id);
           resp.subscribe(() => {
-            this.notification.success("Opertaion effectué avec succés!")
+            this.notification.success("Opération effectuée avec succès!")
             window.location.reload();
           },
             error => {
-              this.notification.warn("Opertaion echoué!")
+              this.notification.warn("Opération échouée!")
               window.location.reload();
             }
-          )
+          );
         }
       });
   }
 
-
-  openUpdateEncDialog(row: any): void {
-    const dialogRef = this.dialog.open(UpdateEncaissmentComponent, {
+  openUpdateDecaissementDialog(row: any): void {
+    const dialogRef = this.dialog.open(UpdateDecaissementComponent, {
       width: '500px', // Set the width of the modal
       disableClose: true,
       data: row // Prevent closing the modal by clicking outside or pressing ESC

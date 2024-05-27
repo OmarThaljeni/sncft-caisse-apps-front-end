@@ -41,8 +41,8 @@
           <i class="fas" [ngClass]="{'fa-angle-up': !showSubmenuEnc.enc, 'fa-times': showSubmenuEnc.enc}"></i>
          <b> Opérations </b>
           <ul *ngIf="showSubmenuEnc.enc" class="submenu">
-            <li [routerLink]="['/list-encaissment']"><i class="fas fa-list"></i> Encaissement</li>
-            <li [routerLink]="['/list-trsanscation']"><i class="fas fa-list"></i> Décaissement</li>
+            <li [routerLink]="['/list-encaissment']"><i class="fas fa-money-check"></i> Encaissement</li>
+            <li [routerLink]="['/list-decaissment']"><i class="fas fa-money-bill-wave"></i> Décaissement</li>
           </ul>
         </li>
 
