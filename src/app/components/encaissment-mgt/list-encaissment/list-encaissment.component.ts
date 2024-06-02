@@ -40,7 +40,9 @@ export class ListEncaissmentComponent {
 
 
   getAllEncaissment() {
-    this.encaissmentService.getAllEncaissment().subscribe((data: Encaissment[]) => {
+    const email = sessionStorage.getItem('loggedUser');
+    if(email)
+    this.encaissmentService.getAllEncaissment(email).subscribe((data: Encaissment[]) => {
       this.dataSource.data = data;
       console.log('data test',data)
     });

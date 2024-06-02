@@ -45,7 +45,9 @@ export class ListDecaissementComponent {
   }
 
   getAllDecaissement() {
-    this.decaissementService.getAllDecaissement().subscribe((data: Decaissement[]) => {
+    const email = sessionStorage.getItem('loggedUser');
+    if(email)
+    this.decaissementService.getAllDecaissement(email).subscribe((data: Decaissement[]) => {
       this.dataSource.data = data;
       console.log('data test', data);
     });

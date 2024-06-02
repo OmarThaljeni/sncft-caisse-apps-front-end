@@ -12,8 +12,8 @@ export class DecaissementService {
 
   constructor(private http: HttpClient) { }
 
-  getAllDecaissement(): Observable<Decaissement[]> {
-    return this.http.get<Decaissement[]>(`${this.baseUrl}/`);
+  getAllDecaissement(email:string): Observable<Decaissement[]> {
+    return this.http.get<Decaissement[]>(`${this.baseUrl}/getAllEmail/${email}`);
   }
 
   getDecaissementById(id: number): Observable<Decaissement> {

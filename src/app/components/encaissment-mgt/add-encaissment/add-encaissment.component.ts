@@ -42,9 +42,11 @@ export class AddEncaissmentComponent implements OnInit {
 
   onSubmit() {
     if (this.transactionForm.valid) {
-      const encData = this.transactionForm.value;
-      console.log(encData);
-
+      let encData = this.transactionForm.value;
+      const email = sessionStorage.getItem('loggedUser');
+      if(email){
+        encData.emailUser = email;
+      }
       this.encaissmentService.createEncaissment(encData).subscribe(
         res => {
           this.dialogRef.close();

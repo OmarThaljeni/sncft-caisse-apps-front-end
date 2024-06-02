@@ -13,8 +13,9 @@ export class EncaissmentService {
 
   constructor(private http: HttpClient) { }
 
-  getAllEncaissment(): Observable<Encaissment[]> {
-    return this.http.get<Encaissment[]>(`${this.baseUrl}/`);
+
+  getAllEncaissment(email:string): Observable<Encaissment[]> {
+    return this.http.get<Encaissment[]>(`${this.baseUrl}/getAllEmail/${email}`);
   }
 
   geEncaissmentById(id: number): Observable<Encaissment> {

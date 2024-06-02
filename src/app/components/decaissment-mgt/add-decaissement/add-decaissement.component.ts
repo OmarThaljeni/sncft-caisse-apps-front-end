@@ -39,8 +39,12 @@ export class AddDecaissementComponent implements OnInit {
 
   onSubmit() {
     if (this.decaissementForm.valid) {
-      const decData = this.decaissementForm.value;
-      this.decaissementService.createDecaissement(decData).subscribe(
+      let decData = this.decaissementForm.value;
+      const email = sessionStorage.getItem('loggedUser');
+      if(email) {
+        decData.emailUser = email;
+      }
+        this.decaissementService.createDecaissement(decData).subscribe(
         res => {
           this.dialogRef.close();
           window.location.reload();

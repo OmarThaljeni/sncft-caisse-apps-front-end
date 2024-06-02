@@ -16,7 +16,7 @@
         </li>
         <li [routerLink]="['/dashborduser']"><i class="fas fa-tachometer-alt"></i> <b> Bord</b></li>
         <!-- <li *ngIf="this.loginService.isAdmin()" [routerLink]="['/listprofessor']"><i class="fas fa-user"></i> Gestion des formateurs</li> -->
-        <li (click)="toggleSubmenu('user')">
+        <li (click)="toggleSubmenu('user')" *ngIf="this.loginService.isAdmin()">
           <i class="fas fa-user"></i> <b>Gestion des utilisateurs</b>
           <ul *ngIf="showSubmenu.user" class="submenu">
             <!-- Add sub-item icon here -->
